@@ -1,5 +1,12 @@
 class BixosController < ApplicationController
 
+  before_filter :authenticate
+  def authenticate
+    authenticate_or_request_with_http_basic do |name, pass|
+      name == 'aaamat' && pass == 'costinha'
+    end
+  end
+
   # GET /bixos
   # GET /bixos.xml
   def index
