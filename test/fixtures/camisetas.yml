@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+1:
+  tamanho: P
+  tipo: Masculina
+
+2:
+  tamanho: M
+  tipo: Masculina
+
+3:
+  tamanho: G
+  tipo: Masculina
+
+4:
+  tamanho: GG
+  tipo: Masculina
+
+5:
+  tamanho: EGG
+  tipo: Masculina
+
+6:
+  tamanho: P
+  tipo: Feminina
+
+7:
+  tamanho: M
+  tipo: Feminina
+
+8:
+  tamanho: G
+  tipo: Feminina

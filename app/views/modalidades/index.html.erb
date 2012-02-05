@@ -1,0 +1,41 @@
+<h1>Modalidades</h1>
+
+<table border=1>
+  <tr>
+    <th>Nome</th>
+    <th>Ações</th>
+  </tr>
+
+<%
+  for modalidade in @modalidades
+    nome = modalidade.nome
+    if modalidade.sexo == 0
+      nome += " Mista"
+    elsif modalidade.sexo == 1
+      nome += " Masculino"
+    else
+      nome += " Feminino"
+    end
+%>
+
+  <tr>
+    <td>
+      <%= link_to nome, modalidade %>
+    </td>
+    <td>
+      <%= link_to 'editar', edit_modalidade_path(modalidade) %>
+      <%= link_to 'apagar', modalidade, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova modalidade', new_modalidade_path %>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<%= link_to "Bixos", :bixos %>

@@ -1,0 +1,16 @@
+<h1>Editando cor</h1>
+
+<% form_for(@cor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.submit "Salvar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Mostrar', @cor %> |
+<%= link_to 'Voltar', cors_path %>

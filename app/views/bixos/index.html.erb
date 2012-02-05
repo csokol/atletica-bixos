@@ -1,0 +1,11 @@
+<% form_remote_tag :url => {:action=>:search}, :update => 'search' do -%>
+  <tt autocomplete="off"></tt>
+  <%= text_field_tag :nome  %>
+  <%= submit_tag 'Pesquisar' %>
+<% end -%>
+
+<div id='search'>
+  <h1> Bixos já cadastrados: </h1>
+
+  <%= render :partial => "list", :locals => {:bixos => @cadastrados, :completa => true} %>
+</div>

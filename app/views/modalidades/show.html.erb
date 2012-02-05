@@ -1,0 +1,37 @@
+<p>
+  <b>Nome:</b>
+  <%=h @modalidade.nome %>
+</p>
+
+<p>
+  <b>bixos inscritos:</b>
+</p>
+<table border=1>
+  <tr>
+    <th>Nome</th>
+    <th>E-mail</th>
+    <th>Celular</th>
+    <th>Telefone</th>
+  </tr>
+  <% @modalidade.bixos.each do |bixo| %>
+    <tr>
+      <td><%= bixo.nome %></td>
+      <td><%= bixo.email %></td>
+      <td><%= bixo.cel %></td>
+      <td><%= bixo.tel %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<p>
+  <b>Lista de E-mails:</b>
+  <br/>
+  <% @modalidade.bixos.each do |bixo| %>
+      <%=h "\"#{bixo.nome}\" <#{bixo.email}>, " %>
+  <% end %>
+</p>
+
+<br/>
+<%= link_to 'Edit', edit_modalidade_path(@modalidade) %> |
+<%= link_to 'Back', modalidades_path %>

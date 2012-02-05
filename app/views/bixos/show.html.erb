@@ -1,0 +1,87 @@
+  <table>
+
+  <tr>
+	  <td align="right" width=7%>
+		  <label>Nome:</label>
+	  </td>
+	  <td>
+		  <%= @bixo.nome %>
+	  </td>
+	  <td align="right">
+			<label>Curso:</label>
+		</td>
+	  <td>
+			<%= Curso.find_by_id(@bixo.curso_id).nome %>
+		</td>
+    <td align="right">
+      <label>Sexo</label>
+    </td>
+    <td> <%= sexo = Sexo.find_by_id(@bixo.sexo_id); sexo.tipo unless sexo.nil? %>
+    </td>
+    <td width=25%></td>
+  </tr>
+
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+
+
+  <tr>
+	  <td align="right">
+		  <label>E-mail:</label>
+	  </td>
+	  <td>
+		  <%= @bixo.email%>
+	  </td>
+	  <% unless @bixo.tel.nil? -%>
+      <td align="right">
+        <label>Telefone:</label>
+      </td>
+      <td><%= @bixo.tel %></td>
+	  <% end -%>
+	  <% unless @bixo.cel.nil? -%>
+      <td align="right">
+        <label>Celular:</label>
+      </td>
+      <td><%= @bixo.cel %></td>
+	  <% end -%>
+  </tr>
+
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+
+
+  <tr>
+    <td align="right">
+      <label>Camiseta:</label>
+    </td>
+    <td>
+      <% camiseta = Camiseta.find_by_id(@bixo.camiseta_id)%>
+      <%= camiseta.tamanho+" "+camiseta.tipo unless camiseta.nil? %>
+    </td>
+    <td align="right">
+      <label>Cor:</label>
+    </td>
+    <td>
+      <%= cor = Cor.find_by_id(@bixo.cor_id); cor.nome unless cor.nil? %>
+    </td>
+  </tr>
+
+  <tr><td></td></tr>
+  <tr><td></td></tr>
+</table>
+<br/>
+<p>Modalidades:</p>
+<br/>
+<list>
+    <% @bixo.modalidades.each do |modalidade| %>
+        <li>
+          <%= modalidade.nome %> <%= Sexo.find_by_id(modalidade.sexo).tipo unless modalidade.sexo == 0 %>
+        </li>
+    <% end %>
+
+</list>
+
+<%= link_to 'Editar', edit_bixo_path(@bixo) %>

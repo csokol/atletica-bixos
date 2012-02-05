@@ -1,0 +1,13 @@
+<p>
+  <b>Tamanho:</b>
+  <%=h @camiseta.tamanho %>
+</p>
+
+<p>
+  <b>Tipo:</b>
+  <%=h @camiseta.tipo %>
+</p>
+
+
+<%= link_to 'Editar', edit_camiseta_path(@camiseta) %> |
+<%= link_to 'Voltar', camisetas_path %>

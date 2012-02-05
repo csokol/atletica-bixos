@@ -1,0 +1,21 @@
+<h1>Listing cors</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Ações</th>
+  </tr>
+
+<% for cor in @cors %>
+  <tr>
+    <td><%=h cor.nome %></td>
+    <td><%= link_to 'mostrar', cor %></td>
+    <td><%= link_to 'editar', edit_cor_path(cor) %></td>
+    <td><%= link_to 'apagar', cor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova cor', new_cor_path %>

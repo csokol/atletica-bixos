@@ -1,0 +1,19 @@
+<h1>Nova camiseta</h1>
+
+<% form_for(@camiseta) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :tamanho %><br />
+    <%= f.text_field :tamanho %>
+  </p>
+  <p>
+    <%= f.label :tipo %><br />
+    <%= f.text_field :tipo %>
+  </p>
+  <p>
+    <%= f.submit "Salvar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', camisetas_path %>

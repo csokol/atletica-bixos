@@ -1,0 +1,129 @@
+<table>
+
+  <tr>
+	  <td align="right" width=7%>
+		  <label>Nome:</label>
+	  </td>
+	  <td>
+		  <%= f.text_field "nome", :size=> 40 %>
+	  </td>
+	  <td align="right">
+			<label>Curso:</label>
+		</td>
+	  <td>
+			<%=
+			    f.collection_select(
+			                      "curso_id",
+			                      Curso.find(:all,:order=>"nome asc"),
+			                      "id",
+			                      "nome",
+			                      {}
+			                     )
+      %>
+		</td>
+    <td align="right"> <label>Sexo</label></td>
+    <td> <%=
+			    f.collection_select(
+			                      "sexo_id",
+			                      Sexo.find(:all,:order=>"tipo asc"),
+			                      "id",
+			                      "tipo",
+			                      {}
+			                     )
+          %>
+    </td>
+    <td width=25%></td>
+  </tr>
+
+  <tr/>
+  <tr/>
+
+  <tr>
+	  <td align="right">
+		  <label>E-mail:</label>
+	  </td>
+	  <td>
+		  <%= f.text_field "email", :size=> 40 %>
+	  </td>
+    <td align="right"> <label>Telefone:</label> </td>
+    <td><%= f.text_field 'tel', :size => 15 %></td>
+    <td align="right"><label>Celular:</label></td>
+    <td><%= f.text_field 'cel', :size => 15 %></td>
+  </tr>
+
+  <tr/>
+  <tr/>
+
+  <tr>
+    <td align="right">
+      <label>Endereço:</label>
+    </td>
+    <td colspan=5>
+    <%= f.text_field "endereco", :size => 80 %>
+    </td>
+  </tr>
+
+  <tr/>
+  <tr/>
+  <tr/>
+  <tr/>
+
+
+
+
+  <tr>
+    <td align="right"> <label>Camiseta:</label></td>
+    <td> <%=
+			    f.collection_select(
+			                      "camiseta_id",
+			                      Camiseta.find(:all,:order=>"tamanho asc"),
+			                      "id",
+			                      "to_label",
+			                      {}
+			                     )
+          %>
+    </td>
+    <td align="right"> <label>Cor:</label></td>
+    <td> <%=
+			    f.collection_select(
+			                      "cor_id",
+			                      Cor.find(:all,:order=>"nome asc"),
+			                      "id",
+			                      "nome",
+			                      {}
+			                     )
+          %>
+    </td>
+  </tr>
+
+  <tr/>
+  <tr/>
+</table>
+<br/>
+<p>Modalidades:</p>
+<br/>
+<table>
+  <tr>
+    <%
+      i=0
+      cels=5
+    %>
+    <% Modalidade.find(:all).each do |modalidade| %>
+      <% if modalidade.sexo == 0 or modalidade.sexo == 1 %>
+          <%= "<td width=20px align='right' >"%>
+          <%= check_box_tag 'bixo[modalidade_ids][]', modalidade.id, @bixo.modalidades.include?(modalidade) %>
+          <%= "<td width=120px align='left' >" %>
+          <%= modalidade.nome  %>
+        </td>
+        </td>
+        <% i += 1 %>
+      <% end %>
+      <% if i == cels %>
+      <%   i=0  %>
+        </tr>
+        <tr>
+      <%end%>
+    <% end %>
+  </tr>
+
+</table>

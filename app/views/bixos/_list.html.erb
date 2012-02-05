@@ -1,0 +1,27 @@
+<table border=1>
+  <tr width=100%>
+    <th>Nome</th>
+
+    <% if completa %>
+      <th>Curso</th>
+      <th>Sexo</th>
+    <% end %>
+
+    <th>Ações</th>
+  </tr>
+
+<% for bixo in bixos %>
+  <tr width=100%>
+    <td width=507px><%= link_to bixo.nome , edit_bixo_path(bixo)  %></td>
+    <% unless bixo.sexo_id.nil? -%>
+
+    <td><%=h Curso.find_by_id(bixo.curso_id).nome %></td>
+    <td><%=h Sexo.find_by_id(bixo.sexo_id).tipo %></td>
+    <% end -%>
+    <td>
+      <%= link_to 'mostrar', bixo %>
+      <%= link_to 'apagar', bixo, :confirm => "Voce tem certeza que deseja exluir #{bixo.nome}?", :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>

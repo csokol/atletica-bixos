@@ -1,0 +1,24 @@
+<h1>Editing modalidade</h1>
+
+<% form_for(@modalidade) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+
+  <p>
+    "Naipe":<br/>
+    <%= radio_button :modalidade , :sexo , 0 , :checked => true%> Mista
+    <%= radio_button :modalidade , :sexo , 1 %> Masculina
+    <%= radio_button :modalidade , :sexo , 2 %> Feminina
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @modalidade %> |
+<%= link_to 'Back', modalidades_path %>

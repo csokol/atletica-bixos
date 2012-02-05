@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+1:
+  nome: Branca
+
+2:
+  nome: Preta
+
+3:
+  nome: Vermelha

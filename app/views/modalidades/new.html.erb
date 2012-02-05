@@ -1,0 +1,23 @@
+<h1>New modalidade</h1>
+
+<% form_for(@modalidade) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+
+  <p>
+    "Naipe":<br/>
+    Mista <%= radio_button :modalidade , :sexo , 0 , :checked => true%>
+    Masculina <%= radio_button :modalidade , :sexo , 1 %>
+    Feminina <%= radio_button :modalidade , :sexo , 2 %>
+  </p>
+
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', modalidades_path %>
